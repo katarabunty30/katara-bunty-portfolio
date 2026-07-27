@@ -15,18 +15,17 @@ function Hero() {
 
       <div className="absolute -bottom-52 -right-52 w-[700px] h-[700px] rounded-full bg-blue-500/10 blur-[200px]" />
 
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
-
+<div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center px-5">
         {/* LEFT SIDE */}
 
 <motion.div
   initial={{ opacity: 0, x: -70 }}
   animate={{ opacity: 1, x: 0 }}
   transition={{ duration: 1 }}
-  className="pt-35"
+  className="pt-28 lg:pt-35 text-center lg:text-left"
 >
 
-  <h1 className="text-6xl lg:text-7xl font-black leading-[1.1]">
+  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
 
     Hi, I'm
 
@@ -38,7 +37,7 @@ function Hero() {
 
   </h1>
 
-  <div className="mt-6 text-3xl font-semibold text-cyan-300 min-h-[60px]">
+  <div className="mt-6 text-xl sm:text-2xl md:text-3xl font-semibold text-cyan-300 min-h-[60px]">
 
     <TypeAnimation
       sequence={[
@@ -67,7 +66,7 @@ function Hero() {
 
           {/* Buttons */}
 
-          <div className="flex flex-wrap gap-5 mt-12">
+          <div className="flex flex-col sm:flex-row gap-5 mt-10 justify-center lg:justify-start">
 
             <motion.a
               href="#contact"
@@ -109,7 +108,7 @@ function Hero() {
 
           {/* Stats */}
 
-          <div className="grid grid-cols-3 gap-6 mt-16">
+          <div className="grid grid-cols-3 gap-3 md:gap-6 mt-12">
 
             {[
               ["100+", "Projects"],
@@ -123,10 +122,10 @@ function Hero() {
                   y: -8,
                   scale: 1.04,
                 }}
-                className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-7 text-center hover:border-cyan-400/40 hover:shadow-[0_0_25px_rgba(34,211,238,.25)] transition"
+                className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-4 md:p-7 text-center hover:border-cyan-400/40 hover:shadow-[0_0_25px_rgba(34,211,238,.25)] transition"
               >
 
-                <h2 className="text-4xl font-black text-cyan-400">
+                <h2 className="text-2xl md:text-4xl font-black text-cyan-400">
 
                   {item[0]}
 
@@ -162,7 +161,12 @@ function Hero() {
       repeat: Infinity,
       ease: "easeInOut",
     }}
-    className="relative w-[540px] h-[540px] flex justify-center items-center"
+    className="relative
+w-[300px] h-[300px]
+sm:w-[360px] sm:h-[360px]
+md:w-[430px] md:h-[430px]
+lg:w-[540px] lg:h-[540px]
+flex justify-center items-center"
   >
 
     {/* Background Glow */}
