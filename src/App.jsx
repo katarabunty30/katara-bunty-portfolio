@@ -21,16 +21,57 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 5000); // 5 Seconds
+    const handleLoad = () => {
+      setTimeout(() => {
+  setLoading(false);
+}, 2800);
+    };
 
-    return () => clearTimeout(timer);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  return (
+  <>
+    {loading && <Loader />}
+
+    <div
+      className={`transition-opacity duration-700 ${
+        loading ? "opacity-0" : "opacity-100"
+      }`}
+    >
+      <div className="bg-[#050816] text-white min-h-screen overflow-x-hidden">
+
+        <ScrollProgress />
+
+        <Background />
+
+        {window.innerWidth > 768 && <CursorGlow />}
+
+        <Navbar />
+        <Hero />
+        <About />
+        <Services />
+        <Skills />
+        <Projects />
+        <Stats />
+        <Testimonials />
+        <Contact />
+        <Footer />
+
+        <BackToTop />
+
+      </div>
+    </div>
+  </>
+);
 
   return (
     <div className="bg-[#050816] text-white min-h-screen overflow-x-hidden">
@@ -38,21 +79,31 @@ function App() {
       <ScrollProgress />
 
       <Background />
-      <CursorGlow />
+
+      {/* Disable Cursor Glow on Mobile */}
+      {window.innerWidth > 768 && <CursorGlow />}
 
       <Navbar />
-<Hero />
 
-<About />
-<Services />
-<Skills />
-<Projects />
-<Stats />
-<Testimonials />
-<Contact />
-<Footer />
+      <Hero />
 
-<BackToTop />
+      <About />
+
+      <Services />
+
+      <Skills />
+
+      <Projects />
+
+      <Stats />
+
+      <Testimonials />
+
+      <Contact />
+
+      <Footer />
+
+      <BackToTop />
 
     </div>
   );
